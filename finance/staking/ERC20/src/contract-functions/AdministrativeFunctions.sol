@@ -5,7 +5,7 @@ pragma solidity 0.8.20;
 
 import "../ComplianceCheck.sol";
 
-contract AdministrativeFunctions is ComplianceCheck {
+abstract contract AdministrativeFunctions is ComplianceCheck {
     // ======================================
     // =     Program Parameter Setters      =
     // ======================================

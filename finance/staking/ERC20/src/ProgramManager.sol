@@ -5,7 +5,7 @@ pragma solidity 0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 
-contract ProgramManager {
+abstract contract ProgramManager {
     // ======================================
     // =          State Variables           =
     // ======================================
@@ -25,7 +25,7 @@ contract ProgramManager {
      *     - Asked when endPool() function is called
      *
      */
-    uint256 internal confirmationCode;
+    uint256 internal immutable confirmationCode;
 
     /// @notice Program token balance for paying interests
     uint256 internal interestPool;
@@ -107,4 +107,8 @@ contract ProgramManager {
 
     /// @dev The list holding all the created pools
     StakingPool[] internal stakingPoolList;
+
+    constructor (uint256 _confirmationCode) {
+        confirmationCode = _confirmationCode;
+    }
 }

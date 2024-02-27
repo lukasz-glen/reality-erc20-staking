@@ -6,7 +6,7 @@ pragma solidity 0.8.20;
 import "./ReadFunctions.sol";
 import "./WriteFunctions.sol";
 
-contract WithdrawFunctions is ReadFunctions, WriteFunctions {
+abstract contract WithdrawFunctions is ReadFunctions, WriteFunctions {
     // ======================================
     // =     Interest Claim Functions       =
     // ======================================

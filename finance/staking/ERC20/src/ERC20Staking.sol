@@ -30,7 +30,7 @@ contract ERC20Staking is AdministrativeFunctions, StakingFunctions, WithdrawFunc
         uint256 _defaultStakingTarget,
         uint256 _defaultMinimumDeposit,
         uint256 _confirmationCode
-    ) {
+    ) ProgramManager(_confirmationCode) {
         if (_defaultMinimumDeposit == 0) revert InvalidArgumentValue("Minimum Deposit", 1);
 
         contractOwner = msg.sender;
@@ -41,8 +41,6 @@ contract ERC20Staking is AdministrativeFunctions, StakingFunctions, WithdrawFunc
 
         defaultStakingTarget = _defaultStakingTarget;
         defaultMinimumDeposit = _defaultMinimumDeposit;
-
-        confirmationCode = _confirmationCode;
 
         emit CreateProgram(stakingToken.symbol(), tokenAddress, _defaultStakingTarget, _defaultMinimumDeposit);
     }
